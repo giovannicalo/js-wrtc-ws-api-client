@@ -1,0 +1,42 @@
+{
+	"author": {
+		"email": "giovanni.calo@live.it",
+		"name": "Giovanni Calò",
+		"url": "https://github.com/giovannicalo"
+	},
+	"bugs": {
+		"url": "https://github.com/giovannicalo/js-wrtc-ws-api-client/issues"
+	},
+	"description": "WebRTC WebSocket Signaling API Client",
+	"dependencies": {
+		"ws": "^8.9.0"
+	},
+	"devDependencies": {
+		"eslint": "^8.24.0",
+		"eslint-config-giovanni": "giovannicalo/eslint-config",
+		"jest": "^29.1.2"
+	},
+	"engines": {
+		"node": ">=18.10.0"
+	},
+	"homepage": "https://github.com/giovannicalo/js-wrtc-ws-api-client",
+	"keywords": ["api", "client", "signaling", "webrtc", "websocket", "wrtc", "ws"],
+	"license": "MIT",
+	"main": "source/index.js",
+	"name": "wrtc-ws-api-client",
+	"optionalDependencies": {
+		"bufferutil": "^4.0.6",
+		"utf-8-validate": "^5.0.9"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/giovannicalo/js-wrtc-ws-api-client.git"
+	},
+	"scripts": {
+		"lint": "eslint -f pretty .",
+		"prepublishOnly": "npm run lint && npm test",
+		"start": "jest --watch",
+		"test": "jest"
+	},
+	"version": "0.0.0"
+}
