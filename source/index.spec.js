@@ -180,6 +180,8 @@ it("should use the given logger", () => {
 		})
 	});
 	expect(log).toHaveBeenCalledWith("info", "Authenticated with ID 42");
+	WebSocket().emit("error", { error: "Something went wrong" });
+	expect(log).toHaveBeenCalledWith("error", "Something went wrong");
 	client.close();
 	expect(log).toHaveBeenCalledWith("info", "Disconnected");
 });

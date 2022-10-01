@@ -57,8 +57,13 @@ class Client extends EventTarget {
 	#connect = () => {
 		this.#socket = new WebSocket(this.#url);
 		this.#socket.addEventListener("close", this.#reconnect);
+		this.#socket.addEventListener("error", this.#handleError);
 		this.#socket.addEventListener("message", this.#handleMessage);
 		this.#socket.addEventListener("open", this.#authenticate);
+	};
+
+	#handleError = ({ error }) => {
+		this.#log?.("error", error);
 	};
 
 	#handleMessage = (message) => {
