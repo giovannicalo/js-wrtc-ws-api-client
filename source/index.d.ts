@@ -1,15 +1,19 @@
-type JsonSerializable = JsonSerializable[] | {
-	[key: string]: JsonSerializable
-} | boolean | null | number | string | undefined;
+declare namespace Client {
 
-type Options = {
-	getAuthenticationData?(): {
+	export type JsonSerializable = JsonSerializable[] | {
 		[key: string]: JsonSerializable
+	} | boolean | null | number | string | undefined;
+
+	export type Options = {
+		getAuthenticationData?(): {
+			[key: string]: JsonSerializable
+		};
+		log?(level: string, message: string): void;
+		reconnectionInterval?: number;
+		role?: string;
 	};
-	log?(level: string, message: string): void;
-	reconnectionInterval?: number;
-	role?: string;
-};
+
+}
 
 declare class Client extends EventTarget {
 
@@ -23,7 +27,7 @@ declare class Client extends EventTarget {
 	 * @param {Number} [options.reconnectionInterval=1000] - The interval between reconnection attempts, in milliseconds, defaults to 1000.
 	 * @param {String} [options.role="client"] - The client's role, defaults to "client".
 	 */
-	constructor(url: string, options?: Options);
+	constructor(url: string, options?: Client.Options);
 
 	/**
 	 * Closes the connection.
@@ -43,7 +47,7 @@ declare class Client extends EventTarget {
 	 * @param {JsonSerializable} message - The message to send.
 	 * @returns {void}
 	 */
-	send(message: JsonSerializable): void;
+	send(message: Client.JsonSerializable): void;
 
 }
 
