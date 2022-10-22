@@ -114,7 +114,7 @@ it("should have an ID after receiving a handshake event", () => {
 			event: "handshake"
 		})
 	});
-	expect(client.id).toEqual(42);
+	expect(client.id).toBe(42);
 });
 
 it("should send the given message to the server", () => {
@@ -164,7 +164,7 @@ it("should reconnect after the given interval", () => {
 it("should close the connection", () => {
 	const client = new Client("ws://localhost:8080");
 	client.close();
-	expect(WebSocket().close).toHaveBeenCalled();
+	expect(WebSocket().close).toHaveBeenCalledWith();
 });
 
 it("should use the given logger", () => {
