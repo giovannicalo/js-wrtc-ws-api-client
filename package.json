@@ -9,15 +9,15 @@
 	},
 	"description": "WebRTC WebSocket Signaling API Client",
 	"dependencies": {
-		"ws": "^8.9.0"
+		"ws": "^8.16.0"
 	},
 	"devDependencies": {
-		"eslint": "^8.26.0",
+		"eslint": "^8.56.0",
 		"eslint-config-giovanni": "giovannicalo/eslint-config",
-		"jest": "^29.2.1"
+		"jest": "^29.7.0"
 	},
 	"engines": {
-		"node": ">=19.0.0"
+		"node": ">=21.6.0"
 	},
 	"homepage": "https://github.com/giovannicalo/js-wrtc-ws-api-client",
 	"keywords": ["api", "client", "signaling", "webrtc", "websocket", "wrtc", "ws"],
@@ -25,8 +25,8 @@
 	"main": "source/index.js",
 	"name": "wrtc-ws-api-client",
 	"optionalDependencies": {
-		"bufferutil": "^4.0.7",
-		"utf-8-validate": "^5.0.10"
+		"bufferutil": "^4.0.8",
+		"utf-8-validate": "^6.0.3"
 	},
 	"repository": {
 		"type": "git",
