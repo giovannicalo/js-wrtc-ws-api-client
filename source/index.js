@@ -1,6 +1,3 @@
-// eslint-disable-next-line no-eval
-const WebSocket = global.WebSocket || eval("require")("ws");
-
 class Client extends EventTarget {
 
 	#getAuthenticationData = null;

@@ -1,46 +1,46 @@
-const WebSocket = require("ws");
-
 const Client = require(".");
 
-jest.mock("ws", () => {
-	const close = jest.fn();
-	const listeners = {};
-	let mockReadyState = 0;
-	const send = jest.fn();
-	return jest.fn().mockImplementation(() => {
-		return {
-			OPEN: 1,
-			addEventListener(event, listener) {
-				listeners[event] = [
-					...listeners[event] || [],
-					listener
-				];
-			},
-			close,
-			emit(event, data) {
-				for (const listener of listeners[event] || []) {
-					listener(data);
+const close = jest.fn();
+
+const listeners = {};
+
+let mockReadyState = null;
+
+const send = jest.fn();
+
+jest.spyOn(global, "WebSocket").mockImplementation(() => {
+	return {
+		OPEN: 1,
+		addEventListener(event, listener) {
+			listeners[event] = [
+				...listeners[event] || [],
+				listener
+			];
+		},
+		close,
+		emit(event, data) {
+			for (const listener of listeners[event] || []) {
+				listener(data);
+			}
+		},
+		get readyState() {
+			return mockReadyState;
+		},
+		set readyState(value) {
+			mockReadyState = value;
+		},
+		removeEventListener() {
+			// Do nothing
+		},
+		removeEventListeners() {
+			for (const listener in listeners) {
+				if (listeners.hasOwnProperty(listener)) {
+					delete listeners[listener];
 				}
-			},
-			get readyState() {
-				return mockReadyState;
-			},
-			set readyState(value) {
-				mockReadyState = value;
-			},
-			removeEventListener() {
-				// Do nothing
-			},
-			removeEventListeners() {
-				for (const listener in listeners) {
-					if (listeners.hasOwnProperty(listener)) {
-						delete listeners[listener];
-					}
-				}
-			},
-			send
-		};
-	});
+			}
+		},
+		send
+	};
 });
 
 beforeEach(() => {
