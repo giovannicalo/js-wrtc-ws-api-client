@@ -17,7 +17,7 @@
 		"jest": "^29.7.0"
 	},
 	"engines": {
-		"node": ">=21.6.0"
+		"node": ">=22.3.0"
 	},
 	"homepage": "https://github.com/giovannicalo/js-wrtc-ws-api-client",
 	"keywords": ["api", "client", "signaling", "webrtc", "websocket", "wrtc", "ws"],
