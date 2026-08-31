@@ -9,9 +9,9 @@
 	},
 	"description": "WebRTC WebSocket Signaling API Client",
 	"devDependencies": {
-		"eslint": "^9.25.1",
+		"eslint": "^9.39.5",
 		"eslint-config-giovanni": "giovannicalo/eslint-config",
-		"jest": "^29.7.0"
+		"jest": "^30.5.0"
 	},
 	"engines": {
 		"node": ">=26.8.1"
