@@ -1,7 +1,7 @@
-**/*.spec.js
 .editorconfig
 .gitattributes
 .github
+**/*.spec.js
 coverage
 eslint.config.js
 jest.config.js
